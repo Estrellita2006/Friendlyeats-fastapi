@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ restaurant.name }} | FriendlyEats{% endblock %}
+
+{% block content %}
+
+<div style="background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: auto;">
+
+    <h2 style="color: #2563eb;">
+        {{ restaurant.name }}
+    </h2>
+
+    {% if restaurant.photoUrl %}
+        <img src="{{ restaurant.photoUrl }}"
+             alt="{{ restaurant.name }}"
+             style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 10px;">
+    {% endif %}
+
+    <h3>Información del restaurante</h3>
+
+    <p><strong>Categoría:</strong> {{ restaurant.category }}</p>
+
+    <p><strong>Ciudad:</strong> {{ restaurant.city }}</p>
+
+    <p><strong>Nivel de precio:</strong> {{ restaurant.price }}</p>
+
+    <p><strong>Calificación promedio:</strong> {{ restaurant.avgRating }}</p>
+
+    <p><strong>Número de opiniones:</strong> {{ restaurant.numRatings }}</p>
+
+    <a href="/restaurants"
+       style="display: inline-block;
+              margin-top: 20px;
+              padding: 10px 20px;
+              background-color: #2563eb;
+              color: white;
+              text-decoration: none;
+              border-radius: 6px;">
+        Volver a restaurantes
+    </a>
+
+</div>
+
+{% endblock %}
